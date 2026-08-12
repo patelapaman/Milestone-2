@@ -1,0 +1,9 @@
+{
+  "model_version": "IF_v1",
+  "algorithm": "Isolation Forest",
+  "n_estimators": 300,
+  "contamination": 0.12,
+  "training_rows": 8,
+  "feature_count": 18,
+  "dataset_fingerprint": "10140e8b86950f4d6564470e33576bc436245c70480ad8f5a6a1298e000e3354"
+}
