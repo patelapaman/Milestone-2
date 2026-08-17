@@ -1,0 +1,149 @@
+/* ============================================================
+   THEME.CSS
+   Global design tokens for the AI-Assisted Threat Detection
+   Dashboard. Import this ONCE in src/index.js (or src/main.jsx):
+
+     import "./styles/theme.css";
+
+   Every other component reads colors/fonts from these CSS
+   variables — don't hardcode hex values in component CSS files.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* ---- Surfaces (deep navy, not pure black — easier on analysts
+     staring at monitors for long shifts) ---- */
+  --bg-deep: #0a0f1d;
+  --bg-panel: #121a2b;
+  --bg-panel-alt: #172038;
+  --bg-elevated: #1b2540;
+  --border-subtle: #223049;
+  --border-strong: #2c3b5c;
+
+  /* ---- Text ---- */
+  --text-primary: #e7ecf5;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* ---- Signal colors — mapped to threat severity, so they
+     carry meaning everywhere they appear across the app ---- */
+  --signal-critical: #f0475d;
+  --signal-critical-dim: rgba(240, 71, 93, 0.14);
+  --signal-high: #f5a623;
+  --signal-high-dim: rgba(245, 166, 35, 0.14);
+  --signal-medium: #7c6cf5;
+  --signal-medium-dim: rgba(124, 108, 245, 0.14);
+  --signal-safe: #35d399;
+  --signal-safe-dim: rgba(53, 211, 153, 0.14);
+
+  /* ---- Primary accent — "live signal" cyan, used for active
+     nav state, links, focus rings, and the monitoring pulse ---- */
+  --accent: #22d3ee;
+  --accent-dim: rgba(34, 211, 238, 0.14);
+
+  /* ---- Type ---- */
+  --font-display: "IBM Plex Mono", ui-monospace, monospace;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ---- Layout ---- */
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 76px;
+  --navbar-h: 64px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--text-primary);
+}
+
+
+/* Light theme: same semantic tokens, optimized for reports and daytime review. */
+html[data-theme="light"] {
+  --bg-deep: #f4f7fb;
+  --bg-panel: #ffffff;
+  --bg-panel-alt: #f7f9fc;
+  --bg-elevated: #eef3f8;
+  --border-subtle: #d9e2ec;
+  --border-strong: #b8c7d8;
+  --text-primary: #102033;
+  --text-secondary: #52657a;
+  --text-muted: #718096;
+  --accent: #087ea4;
+  --accent-dim: rgba(8, 126, 164, 0.11);
+  --signal-critical: #d92d4b;
+  --signal-critical-dim: rgba(217, 45, 75, 0.11);
+  --signal-high: #b56a00;
+  --signal-high-dim: rgba(181, 106, 0, 0.11);
+  --signal-medium: #5b4bc4;
+  --signal-medium-dim: rgba(91, 75, 196, 0.11);
+  --signal-safe: #148a5b;
+  --signal-safe-dim: rgba(20, 138, 91, 0.11);
+}
+
+html,
+body,
+#root,
+.dashboard-shell,
+.login-page,
+.navbar,
+.sidebar,
+.section-card,
+.section-kpi,
+.section-note,
+.m2-app-shell {
+  transition: background-color .28s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+/* Thin, dark scrollbars fit the SOC-console feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Visible keyboard focus everywhere — accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

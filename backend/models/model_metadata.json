@@ -1,9 +1,10 @@
 {
-  "model_version": "IF_v1",
+  "model_version": "IF_SHARED_V2",
   "algorithm": "Isolation Forest",
   "n_estimators": 300,
   "contamination": 0.12,
-  "training_rows": 8,
+  "training_rows": 1800,
   "feature_count": 18,
-  "dataset_fingerprint": "10140e8b86950f4d6564470e33576bc436245c70480ad8f5a6a1298e000e3354"
+  "dataset_fingerprint": "2ce5c3bb5e500a5f49c6554f894daa96465a6198d99a5b2aefbb6446a99c3fbb",
+  "scikit_learn_version": "1.8.0"
 }

@@ -1,0 +1,32 @@
+.dashboard-shell {
+  min-height: 100vh;
+  background: var(--bg-deep);
+}
+
+.dashboard-main {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.2s ease;
+}
+
+.dashboard-main.sidebar-collapsed {
+  margin-left: var(--sidebar-w-collapsed);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 24px 28px 40px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-main,
+  .dashboard-main.sidebar-collapsed {
+    margin-left: 0;
+  }
+
+  .dashboard-content {
+    padding: 18px 16px 32px;
+  }
+}
